@@ -10,7 +10,7 @@ nps
 		// });
 		$stateProvider
 			.state('home', {
-				url: "/",
+				url: "",
 				templateUrl: "shared/pages/home.html",
 				controller: "Controller"
 			})

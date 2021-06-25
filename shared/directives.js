@@ -101,16 +101,3 @@ nps.directive("whichlocation", function ($location, $rootScope) {
  		}
  	}
  });
-
- nps.directive("npsData", function ($http, $rootScope, ) {
- 	return {
- 		restrict: "A",
- 		controller: function ($scope) {
-			$http.get('data/nps.json')
-				.then(function (response) {
-					$rootScope.nps = response.data;
-					$scope.states.sort();
-				});
-		}
- 	}
- });
