@@ -1,0 +1,69 @@
+<section id="carouselCtrl" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+		<h1><span>
+			National Park Service
+		</span></h1>
+		<video class="carousel-item-active" autoplay>
+		<!-- <video class="carousel-item-active" data-video-options="loop: true, muted: true, position: 50% 50%, posterType: jpg"> -->
+			<source src="../../videos/hero_video.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+</section>
+
+<form class="py-4" novalidate>
+	<div class="container form-group px-3">
+		<h2 class="text-center">Find A National Park</h2>
+		<label for="select-a-state">Select A State</label>
+		<select 
+			id="select-a-state"
+			class="form-control"
+			ng-model="selectedName"
+			ng-options="x for x in nps.parks.state">
+			<option value="">Select A State...</option>
+		</select>
+	</div>
+	<div class="container text-center">
+		<button type="submit" class="btn btn-sm btn-primary">Search</button>
+	</div>
+</form>
+
+<section id="featured" class="container px-3">
+	<div 
+		ng-repeat="x in featured track by $index"
+		class="card">
+		<img class="" src="{{x.img}}" alt="{{x.title}}">
+		<div class="card-body">
+			<h5 class="card-title">{{x.title}}</h5>
+			<!-- <p class="card-text">{{featured.title}}</p> -->
+		</div>
+	</div>
+</section>
+
+<section id="social" class="container py-4 px-3">
+	<ul class="px-3">
+		<h1>Stay Connected</h1>
+		<li>
+			<img src="https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png"/><p class="my-0">Facebook</p>
+		</li>
+		<li>
+			<img src="https://www.studentenreisproduct.nl/srp-content/uploads/2015/05/Twitter_Logo_Blue.png"/><p class="my-0">Twitter</p>
+		</li>
+		<li>
+			<img src="https://cdn.vectorlogosupply.com/logos/large/2x/instagram-2016-png-transparent-logo.png"/><p class="my-0">Instagram</p>
+		</li>
+	</ul>
+</section>
+
+<section id="popular" class="container py-4 px-3">
+	<h1>Popular Parks</h1>
+	<div 
+		ng-repeat="x in popular track by $index"
+		class="card">
+		<img class="" src="{{x[1]}}" alt="{{x[0]}}">
+		<div class="card-body">
+			<h5 class="card-title">{{x[0]}}</h5>
+			<!-- <p class="card-text">{{featured.title}}</p> -->
+		</div>
+	</div>
+</section>

@@ -1,0 +1,26 @@
+<div class="d-flex">
+	<a class="navbar-brand" ui-sref="home">
+		<img src="images\logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+		<div class="navbar-title">NPS</div>
+	</a>
+	<div id="menu"
+		ng-model="links"
+		class="collapse navbar-collapse">
+		<ul class="nav ">
+			<li ng-repeat="x in links track by $index"
+				class="nav-item">
+				<a class="nav-link"
+					ui-sref="{{x}}">
+					{{x}}
+				</a>
+			</li>
+		</ul>
+	</div>
+	<button type="button" 
+		class="navbar-toggler collapsed" 
+		data-toggle="collapse" 
+		data-target="#menu"
+		ng-click="navClick()">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+</div>

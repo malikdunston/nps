@@ -1,0 +1,29 @@
+<article>
+	<img src="{{article.image}}"/>
+	<h1>{{article.title}}</h1>
+	<aside>
+		<h5>Released:</h5>
+		<p>{{article.date.month}} {{article.date.date}}, {{article.date.year}}</p>
+		<h5>Contact:</h5>
+		<p>{{article.contact.name}}, {{article.contact.title}} <br>{{article.contact.phone}}</p>
+	</aside>
+	<p ng-repeat="x in article.content">{{x}}</p>
+</article>
+
+<section id="related">
+	<h2>Related News</h2>
+	<div ng-repeat="x in stories track by $index">
+		<h2>{{x.title}}</h2>
+		<p>{{x.date.month}} {{x.date.date}}, {{x.date.year}}</p>
+	</div>
+	<section class="container text-center pt-3">
+		<button type="submit" class="mb-md-3 btn btn-sm btn-dark">Load More</button>
+	</section>
+</section>
+
+<section id="ads" class="mx-auto">
+	<div>
+		Promotion Item<br>
+		300x250
+	</div>
+</section>

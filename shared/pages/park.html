@@ -1,0 +1,94 @@
+<section id="carouselCtrl" class="carousel slide" >
+	<div class="carousel-inner carousel-item-active">
+		<div id="park-title" class="text-center">
+			<h1><span>
+				{{sequoia.name}}
+			</span></h1>
+			<button class="btn">
+				Plan Your Visit
+			</button>
+		</div>
+		<img src="{{sequoia.gallery[0][1]}}" class=""/>
+	</div>
+</section>
+
+<section id="park-list" class="">
+	<!-- <ul class="list-group list-group-flush"> -->
+		<div 
+			ng-repeat="x in sequoia.list track by $index">
+			<div class="list-img">
+				<img src="{{x[2]}}"/>
+			</div>
+			<div class="list-copy">
+				<h5>{{x[0]}}</h5>
+				<p>{{x[1]}}</p>
+			</div>
+		</div>
+	<!-- </ul> -->
+</section>
+
+<form id="sign up" class="py-4 px-3"
+	novalidate>
+	<h2 class="text-center">Sign up for Alerts</h2>
+	<div class="form-group">
+		<label for="alerts">Email Address:</label>
+		<input 
+			id="alerts"
+			placeholder="name@example.com"
+			class="form-control">
+		</input>
+	</div>
+	<div class="container text-center">
+		<button type="submit" class="mb-md-3 btn btn-sm btn-success">Sign Up</button>
+	</div>
+</form>
+<div class="px-3">
+
+<div id="gallery" class="carousel slide" data-ride="carousel">
+	<div id="gallery-title" class="">
+		<p>View Photo Galleries</p>
+	</div>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img class="d-block w-100" src="{{sequoia.gallery[1][1]}}" alt="First slide">
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+</div>
+
+<section id="social" class="py-4 px-3">
+	<ul class="">
+		<h1>Stay Connected</h1>
+		<li>
+			<img src="https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png"/><p class="my-0">Facebook</p>
+		</li>
+		<li>
+			<img src="https://www.studentenreisproduct.nl/srp-content/uploads/2015/05/Twitter_Logo_Blue.png"/><p class="my-0">Twitter</p>
+		</li>
+		<li>
+			<img src="https://cdn.vectorlogosupply.com/logos/large/2x/instagram-2016-png-transparent-logo.png"/><p class="my-0">Instagram</p>
+		</li>
+	</ul>
+</section>
+
+<form id="contact" class="py-4 px-3"
+	novalidate>
+	<h2 class="text-center">Contact the Park</h2>
+	<h5>Mailing Address:</h5>
+	<p>47050 Generals Highway <br> Three Rivers, CA 93271</p>
+	<h5>Phone:</h5>
+	<p>(559) 565-3341</p>
+	<h5>Email Inquiry:</h5>
+	<input placeholder="enter your message here"/>
+	<div class="container text-center">
+		<button type="submit" class="mb-md-3 btn btn-sm btn-primary">Send</button>
+	</div>
+</form>
