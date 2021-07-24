@@ -3,105 +3,105 @@
 		"featured": [
 			{
 				"title": "Watch Video",
-				"img": "../../images/home/list_item_1.jpg"
+				"img": "./images/home/list_item_1.jpg"
 			},
 			{
 				"title": "Tools for Educators",
-				"img": "../../images/home/list_item_2.jpg"
+				"img": "./images/home/list_item_2.jpg"
 			},
 			{
 				"title": "Monitoring Mammals",
-				"img": "../../images/home/list_item_3.jpg"
+				"img": "./images/home/list_item_3.jpg"
 			},
 			{
 				"title": "This Month's NPS Giveaway",
-				"img": "../../images/home/list_item_4.jpg"
+				"img": "./images/home/list_item_4.jpg"
 			},
 			{
 				"title": "Celebrating Hispanic Heritage",
-				"img": "../../images/home/list_item_5.jpg"
+				"img": "./images/home/list_item_5.jpg"
 			},
 			{
 				"title": "National Park News",
-				"img": "../../images/home/list_item_6.jpg"
+				"img": "./images/home/list_item_6.jpg"
 			},
 			{
 				"title": "Photos, Videos, Webcams & More",
-				"img": "../../images/home/list_item_7.jpg"
+				"img": "./images/home/list_item_7.jpg"
 			}
 		],
 		"popular": [
 			[
 				"Acadia",
-				"../../images/home/acadia.jpg"
+				"./images/home/acadia.jpg"
 			],
 			[
 				"Arches",
-				"../../images/home/arches.jpg"
+				"./images/home/arches.jpg"
 			],
 			[
 				"Big Bend",
-				"../../images/home/big_bend.jpg"
+				"./images/home/big_bend.jpg"
 			],
 			[
 				"Black Canyon",
-				"../../images/home/black_canyon.jpg"
+				"./images/home/black_canyon.jpg"
 			],
 			[
 				"Bryce Canyon",
-				"../../images/home/bryce_canyon.jpg"
+				"./images/home/bryce_canyon.jpg"
 			],
 			[
 				"Cuyahoga",
-				"../../images/home/cuyahoga.jpg"
+				"./images/home/cuyahoga.jpg"
 			],
 			[
 				"Denali",
-				"../../images/home/denali.jpg"
+				"./images/home/denali.jpg"
 			],
 			[
 				"Glacier",
-				"../../images/home/glacier.jpg"
+				"./images/home/glacier.jpg"
 			],
 			[
 				"Grand Teton",
-				"../../images/home/grand_teton.jpg"
+				"./images/home/grand_teton.jpg"
 			],
 			[
 				"Kenai Fjords",
-				"../../images/home/kenai_fjords.jpg"
+				"./images/home/kenai_fjords.jpg"
 			],
 			[
 				"King's Canyon",
-				"../../images/home/kings_canyon.jpg"
+				"./images/home/kings_canyon.jpg"
 			],
 			[
 				"Mount Rainier",
-				"../../images/home/mount_rainier.jpg"
+				"./images/home/mount_rainier.jpg"
 			],
 			[
 				"Rocky Mountain",
-				"../../images/home/rocky_mountain.jpg"
+				"./images/home/rocky_mountain.jpg"
 			],
 			[
 				"Sequoia",
-				"../../images/home/sequoia.jpg"
+				"./images/home/sequoia.jpg"
 			],
 			[
 				"Shenandoah",
-				"../../images/home/shenandoah.jpg"
+				"./images/home/shenandoah.jpg"
 			],
 			[
 				"Yellowstone",
-				"../../images/home/yellowstone.jpg"
+				"./images/home/yellowstone.jpg"
 			],
 			[
 				"Yosemite",
-				"../../images/home/yosemite.jpg"
+				"./images/home/yosemite.jpg"
 			],
 			[
 				"Zion",
-				"../../images/home/zion.jpg"
+				"./images/home/zion.jpg"
 			]
 		]
 	},
@@ -179,58 +179,58 @@
 			},
 			"gallery": [
 				[
-					"photo_1", "../../images/park/hero.jpg"
+					"photo_1", "./images/park/hero.jpg"
 				],
 				[
 					"gallery_1",
-					"../../images/park/gallery_1.jpg"
+					"./images/park/gallery_1.jpg"
 				]
 			],
 			"list": [
 				[
 					"Planning Trips",
 					"Start here for information about camping, lodging, driving, and more.",
-					"images/park/list_item_1.jpg"
+					"./images/park/list_item_1.jpg"
 				],
 				[
 					"Campgrounds",
 					"Campground reservations for 2018 are now available!",
-					"../../images/park/list_item_2.jpg"
+					"./images/park/list_item_2.jpg"
 				],
 				[
 					"Current Conditions",
 					"Check conditions before you decide to come. Mountain weather changes quickly! Be prepared with the right gear.",
-					"../../images/park/list_item_3.jpg"
+					"./images/park/list_item_3.jpg"
 				],
 				[
 					"Explore Sequoia Grove",
 					"Whether you see them from your car or hike to a remote grove, giant sequoias inspire awe and wonder.",
-					"../../images/park/list_item_4.jpg"
+					"./images/park/list_item_4.jpg"
 				],
 				[
 					"Lodging",
 					"Four lodges operate within Sequoia & Kings Canyon National Parks, including two that are open year-round.",
-					"../../images/park/list_item_5.jpg"
+					"./images/park/list_item_5.jpg"
 				],
 				[
 					"Backpacking",
 					"Learn more about backpacking in these parks. Wilderness awaits!",
-					"../../images/park/list_item_6.jpg"
+					"./images/park/list_item_6.jpg"
 				],
 				[
 					"Bears and Food Storage",
 					"Black bears are active year-round in these parks. Storing food properly can help prevent vehicle break-ins.",
-					"../../images/park/list_item_7.jpg"
+					"./images/park/list_item_7.jpg"
 				],
 				[
 					"Winter Driving & Tire Chains",
 					"Be prepared for snowy mountain roads! Chains may be required at any time.",
-					"../../images/park/list_item_8.jpg"
+					"./images/park/list_item_8.jpg"
 				],
 				[
 					"Things to Do",
 					"There are many ways to explore these parks. Find activities that are best for you!",
-					"../../images/park/list_item_9.jpg"
+					"./images/park/list_item_9.jpg"
 				]
 			]
 		}
@@ -239,7 +239,7 @@
 	"article": {
 		"all": [{
 				"title": "Parks Announce Fall Prescribed Burn Plans",
-				"image": "../../images/article/featured.jpg",
+				"image": "./images/article/featured.jpg",
 				"contact": {
 					"name": "Mike Theune",
 					"title": "Fire Information Officer",

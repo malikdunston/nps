@@ -3,14 +3,14 @@ var nps = angular.module('app', [
 ]);
 
 nps
-	.config(["$stateProvider", function($stateProvider, $locationProvider){
-		// $locationProvider.html5Mode({
-		// 	enabled: true,
-		// 	requireBase: false
-		// });
+	.config(["$stateProvider", "$locationProvider", function($stateProvider, $locationProvider){
+		$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+		});
 		$stateProvider
 			.state('home', {
-				url: "",
+				url: "/",
 				templateUrl: "shared/pages/home.html",
 				controller: "Controller"
 			})
@@ -24,4 +24,5 @@ nps
 				templateUrl: "shared/pages/park.html",
 				controller: "Controller"
 			})
+			.state("otherwise", {url: "/"})
 	}]);
