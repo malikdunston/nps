@@ -6,6 +6,7 @@ import { Component } from "react";
 	import Logo from "./assets/images/logo.svg";
 	import Config from "./config.json";
 	import Navigation from "./components/Navigation.js";
+	import Footer from "./components/Footer.js";
 
 class App extends Component {
 	constructor() {
@@ -24,11 +25,10 @@ class App extends Component {
 		url.search = new URLSearchParams(params).toString();
 		return  await fetch(url).then(resp => resp.json());
 	}
-	render() {
-		return <div className={"App " + this.props.location.pathname.split("/")[1]}>
-			<Navigation logo={Logo}/>
-		</div>
-	};
+	render() {return <div className={"App " + this.props.location.pathname.split("/")[1]}>
+		<Navigation logo={Logo}/>
+		<Footer logo={Logo}/>
+	</div>};
 }; 
 
 export default withRouter(App);
