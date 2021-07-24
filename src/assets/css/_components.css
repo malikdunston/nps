@@ -4,12 +4,12 @@ nav{
 	height: 66px;
 }	
 
-#menu{
+nav .menu{
 	padding: 6px 0 0 40px;
 	font-weight: bold;
 	opacity: .7;
 }
-#menu a{
+nav .menu a{
 	color: white!important;
 }
 

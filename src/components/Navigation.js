@@ -24,8 +24,7 @@ render(){ return (
 				<img src={this.props.logo} width="30" height="30" className="d-inline-block align-top" alt=""/>
 				<div className="navbar-title">NPS</div>
 			</Link>
-			<div id="menu"
-				className={"collapse navbar-collapse " + (this.state.open ? "show" : "")} >
+			<div className={"menu collapse navbar-collapse " + (this.state.open ? "show" : "")} >
 				<ul className="nav ">
 					{this.state.menu.map(m=>{
 						return <li className="nav-item">
@@ -39,7 +38,6 @@ render(){ return (
 			<button type="button" 
 				className="navbar-toggler collapsed" 
 				data-toggle="collapse" 
-				data-target="#menu"
 				onClick={this.navClick}>
 				<span className="navbar-toggler-icon"></span>
 			</button>

@@ -7,6 +7,7 @@ import { Component } from "react";
 	import Config from "./config.json";
 	import Navigation from "./components/Navigation.js";
 	import Footer from "./components/Footer.js";
+	import Home from "./pages/home/Home.js";
 
 class App extends Component {
 	constructor() {
@@ -27,6 +28,10 @@ class App extends Component {
 	}
 	render() {return <div className={"App " + this.props.location.pathname.split("/")[1]}>
 		<Navigation logo={Logo}/>
+		<Route exact path="/"
+			render={()=>{
+				return <Home states={Config.state} popular={Config.data.home.popular} featured={Config.data.home.featured} />
+			}}/>
 		<Footer logo={Logo}/>
 	</div>};
 }; 
