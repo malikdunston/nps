@@ -1,10 +1,11 @@
 import { Component } from "react";
 	import "./assets/webfonts/webfonts.css";
-	import "./assets/css/normalize.css";
+	import "./assets/css/main.css";
 	import "./assets/css/index.min.css";
 	import { Route, Link, withRouter } from "react-router-dom";
 	import Logo from "./assets/images/logo.svg";
 	import Config from "./config.json";
+	import Navigation from "./components/Navigation.js";
 
 class App extends Component {
 	constructor() {
@@ -24,11 +25,9 @@ class App extends Component {
 		return  await fetch(url).then(resp => resp.json());
 	}
 	render() {
-		return (
-			<div className={"App " + this.props.location.pathname.split("/")[1]}>
-				<img src={Logo} alt="" />
-			</div>
-		);
+		return <div className={"App " + this.props.location.pathname.split("/")[1]}>
+			<Navigation logo={Logo}/>
+		</div>
 	};
 }; 
 
