@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+	import "./assets/webfonts/webfonts.css";
+	import "./assets/css/normalize.css";
+	import "./assets/css/index.min.css";
+	import { Route, Link, withRouter } from "react-router-dom";
+	import Logo from "./assets/images/logo.svg";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+		}
+	};
+	async componentDidMount() {
+	}
+	async getData(params){
+		params = params || {};
+		let url = new URL("");
+		url.search = new URLSearchParams(params).toString();
+		return  await fetch(url).then(resp => resp.json());
+	}
+	render() {
+		return (
+			<div className={"App " + this.props.location.pathname.split("/")[1]}>
+				<img src={Logo} alt="" />
+			</div>
+		);
+	};
+}; 
 
-export default App;
+export default withRouter(App);
