@@ -4,6 +4,7 @@ import { Component } from "react";
 	import "./assets/css/index.min.css";
 	import { Route, Link, withRouter } from "react-router-dom";
 	import Logo from "./assets/images/logo.svg";
+	import Config from "./config.json";
 
 class App extends Component {
 	constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
 	}
 	async getData(lookFor, params){
 		params = params || {};
-		params["api_key"] = "P43cvAk8EmtHTuMBgsts2vsqFLqeFcWXPtLnfnc9";
+		params["api_key"] = Config.__nps_config;
 		let url = new URL(("https://developer.nps.gov/api/v1/" + lookFor));
 		url.search = new URLSearchParams(params).toString();
 		return  await fetch(url).then(resp => resp.json());
