@@ -15,6 +15,5 @@ nps.controller("Controller", function ($scope, $http) {
 	// getting started https://www.nps.gov/subjects/developer/get-started.htm
 	// api key = P43cvAk8EmtHTuMBgsts2vsqFLqeFcWXPtLnfnc9
 	// url for sample query = https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=P43cvAk8EmtHTuMBgsts2vsqFLqeFcWXPtLnfnc9
-	$http.get("")
 });
 
