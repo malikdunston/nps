@@ -12,10 +12,13 @@ class App extends Component {
 		}
 	};
 	async componentDidMount() {
+		let parks = await this.getData("parks", {});
+		console.log(parks);
 	}
-	async getData(params){
+	async getData(lookFor, params){
 		params = params || {};
-		let url = new URL("");
+		params["api_key"] = "P43cvAk8EmtHTuMBgsts2vsqFLqeFcWXPtLnfnc9";
+		let url = new URL(("https://developer.nps.gov/api/v1/" + lookFor));
 		url.search = new URLSearchParams(params).toString();
 		return  await fetch(url).then(resp => resp.json());
 	}
