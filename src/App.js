@@ -9,6 +9,7 @@ import { Component } from "react";
 	import Footer from "./components/Footer.js";
 	import Home from "./pages/home/Home.js";
 	import Article from "./pages/article/Article.js";
+	import Park from "./pages/park/Park.js";
 
 class App extends Component {
 	constructor() {
@@ -36,6 +37,10 @@ class App extends Component {
 		<Route exact path="/article"
 			render={()=>{
 				return <Article current={Config.data.article.current} all={Config.data.article.all} />
+			}}/>
+		<Route exact path="/park"
+			render={()=>{
+				return <Park current={Config.data.parks.sequoia}/>
 			}}/>
 		<Footer logo={Logo}/>
 	</div>};
