@@ -33,7 +33,6 @@ render(){ return (
 				</video>
 			</div>
 		</section>
-
 		<form className="py-4" novalidate>
 			<div className="container form-group px-3">
 				<h2 className="text-center">Find A National Park</h2>
@@ -50,7 +49,6 @@ render(){ return (
 				<button type="submit" className="btn btn-sm btn-primary">Search</button>
 			</div>
 		</form>
-
 		<section id="featured" className="container px-3">
 			{this.props.featured.map(f=>{
 				return <div className="card">
@@ -61,7 +59,6 @@ render(){ return (
 				</div>
 			})}
 		</section>
-
 		<section id="popular" className="container py-4 px-3">
 			<h1>Popular Parks</h1>
 			{this.props.popular.map(p=>{
@@ -73,7 +70,6 @@ render(){ return (
 				</div>
 			})}
 		</section>
-
 	</div>
 ) }
 } export default  Home;
