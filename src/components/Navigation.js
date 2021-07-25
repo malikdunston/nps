@@ -8,7 +8,7 @@ constructor(props){
 		open: false,
 		menu: [
 			["home", "/"],
-			["about", "/about"],
+			["article", "/article"],
 			["park", "/park/"]
 		]
 	}

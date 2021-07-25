@@ -8,6 +8,7 @@ import { Component } from "react";
 	import Navigation from "./components/Navigation.js";
 	import Footer from "./components/Footer.js";
 	import Home from "./pages/home/Home.js";
+	import Article from "./pages/article/Article.js";
 
 class App extends Component {
 	constructor() {
@@ -31,6 +32,10 @@ class App extends Component {
 		<Route exact path="/"
 			render={()=>{
 				return <Home states={Config.state} popular={Config.data.home.popular} featured={Config.data.home.featured} />
+			}}/>
+		<Route exact path="/article"
+			render={()=>{
+				return <Article current={Config.data.article.current} all={Config.data.article.all} />
 			}}/>
 		<Footer logo={Logo}/>
 	</div>};
