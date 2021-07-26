@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import HomeVideo from "./hero_video.mp4";
 import Hoc from "../../components/getData";
 
@@ -6,14 +7,18 @@ class Home extends Component {
 constructor(props){
 	super(props);
 	this.state = {
-		parks: []
+		parks: [],
+		featured: []
 	}
 }
 async componentDidMount(){
 	const parks = await this.props.getData("parks");
 	parks.data.length = 18;
+	const featured = await this.props.getData("newsreleases");
+	featured.data.length = 7;
 	this.setState({
-		parks: parks.data
+		parks: parks.data,
+		featured: featured.data
 	})
 }
 render(){ return (
@@ -33,10 +38,13 @@ render(){ return (
 				<h2 className="text-center">Find A National Park</h2>
 				<label for="select-a-state">Select A State</label>
 				<select id="select-a-state"
-					className="form-control">
+					className="form-control"
+					onChange={(e)=>{
+						console.log(e.target.value);
+					}}>
 					<option value="">Select A State...</option>
 					{this.props.states.map(s=>{
-						return <option value="">{s[1]}</option>
+						return <option value={s[0]}>{s[1]}</option>
 					})}
 				</select>
 			</div>
@@ -45,9 +53,9 @@ render(){ return (
 			</div>
 		</form>
 		<section id="featured" className="container px-3">
-			{this.props.featured.map(f=>{
+			{!this.state.featured ? "" :  this.state.featured.map(f=>{
 				return <div className="card">
-					<img src={("/img/home/" + f.img)} alt={f.title}/>
+					<img src={f.image.url} alt={f.altText}/>
 					<div className="card-body">
 						<h5 className="card-title">{f.title}</h5>
 					</div>
@@ -55,14 +63,14 @@ render(){ return (
 			})}
 		</section>
 		<section id="popular" className="container py-4 px-3">
-			<h1>Popular Parks</h1>
+			<h1>View Parks</h1>
 			{this.state.parks.map(p=>{
-				return <div className="card">
+				return <Link to={"/park/" + p.parkCode} className="card">
 					<img className="" src={p.images[0].url} alt={p.images[0].altText}/>
 					<div className="card-body">
 						<h5 className="card-title">{p.name}</h5>
 					</div>
-				</div>
+				</Link>
 			})}
 		</section>
 	</div>

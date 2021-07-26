@@ -26,9 +26,9 @@ class App extends Component {
 					current={Config.data.article.current} 
 					all={Config.data.article.all} />
 			}}/>
-		<Route exact path="/park"
-			render={()=>{
-				return <Park current={Config.data.parks.sequoia}/>
+		<Route exact path="/park/:parkCode?"
+			render={(params)=>{
+				return <Park {...params} current={Config.data.parks.sequoia}/>
 			}}/>
 		<Footer logo={Logo}/>
 	</div>};
