@@ -16,9 +16,7 @@ class App extends Component {
 		<Navigation logo={Logo}/>
 		<Route exact path="/"
 			render={()=>{
-				return <Home 
-					popular={Config.data.home.popular} 
-					featured={Config.data.home.featured} />
+				return <Home />
 			}}/>
 		<Route exact path="/article"
 			render={()=>{
@@ -28,7 +26,7 @@ class App extends Component {
 			}}/>
 		<Route exact path="/park/:parkCode?"
 			render={(params)=>{
-				return <Park {...params} current={Config.data.parks.sequoia}/>
+				return <Park {...params}/>
 			}}/>
 		<Footer logo={Logo}/>
 	</div>};
