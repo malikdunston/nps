@@ -12,31 +12,19 @@ import { Component } from "react";
 	import Park from "./pages/park/Park.js";
 
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-		}
-	};
-	async componentDidMount() {
-		let parks = await this.getData("parks", {});
-		console.log(parks);
-	}
-	async getData(lookFor, params){
-		params = params || {};
-		params["api_key"] = Config.__nps_config;
-		let url = new URL(("https://developer.nps.gov/api/v1/" + lookFor));
-		url.search = new URLSearchParams(params).toString();
-		return  await fetch(url).then(resp => resp.json());
-	}
 	render() {return <div className={"App " + this.props.location.pathname.split("/")[1]}>
 		<Navigation logo={Logo}/>
 		<Route exact path="/"
 			render={()=>{
-				return <Home states={Config.state} popular={Config.data.home.popular} featured={Config.data.home.featured} />
+				return <Home 
+					popular={Config.data.home.popular} 
+					featured={Config.data.home.featured} />
 			}}/>
 		<Route exact path="/article"
 			render={()=>{
-				return <Article current={Config.data.article.current} all={Config.data.article.all} />
+				return <Article 
+					current={Config.data.article.current} 
+					all={Config.data.article.all} />
 			}}/>
 		<Route exact path="/park"
 			render={()=>{

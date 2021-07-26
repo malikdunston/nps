@@ -1,28 +1,23 @@
 import React, { Component } from "react";
-// import {Link} from "react-router-dom";
 import HomeVideo from "./hero_video.mp4";
+import Hoc from "../../components/getData";
 
 class Home extends Component { 
-
 constructor(props){
 	super(props);
 	this.state = {
-		states: []
+		parks: []
 	}
 }
-
-componentDidMount(){
-	let abbrs = Object.keys(this.props.states);
-	abbrs = abbrs.map(s=>{
-		return [s, this.props.states[s]]
-	});
-	this.setState(prevState=>{
-		return {states: abbrs}
+async componentDidMount(){
+	const parks = await this.props.getData("parks");
+	parks.data.length = 18;
+	this.setState({
+		parks: parks.data
 	})
 }
-
 render(){ return (
-	<div>
+	!this.state.parks ? "" : <div>
 		<section id="carouselCtrl" className="carousel slide" data-ride="carousel">
 			<div className="carousel-inner">
 				<h1><span>
@@ -40,7 +35,7 @@ render(){ return (
 				<select id="select-a-state"
 					className="form-control">
 					<option value="">Select A State...</option>
-					{this.state.states.map(s=>{
+					{this.props.states.map(s=>{
 						return <option value="">{s[1]}</option>
 					})}
 				</select>
@@ -61,15 +56,15 @@ render(){ return (
 		</section>
 		<section id="popular" className="container py-4 px-3">
 			<h1>Popular Parks</h1>
-			{this.props.popular.map(p=>{
+			{this.state.parks.map(p=>{
 				return <div className="card">
-					<img className="" src={"/img/home/" + p[1]} alt={p[0]}/>
+					<img className="" src={p.images[0].url} alt={p.images[0].altText}/>
 					<div className="card-body">
-						<h5 className="card-title">{p[0]}</h5>
+						<h5 className="card-title">{p.name}</h5>
 					</div>
 				</div>
 			})}
 		</section>
 	</div>
 ) }
-} export default  Home;
+} export default  Hoc(Home);
