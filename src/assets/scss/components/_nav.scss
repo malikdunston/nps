@@ -1,0 +1,35 @@
+nav {
+	background-color: #121214 !important;
+	height: 66px;
+	.menu {
+		padding: 6px 0 0 40px;
+		font-weight: bold;
+		opacity: .7;
+
+		a {
+			color: white !important;
+		}
+	}
+	img {
+		width: 30.39px;
+		height: 40px;
+		position: relative;
+	}
+	.navbar-brand {
+		margin-right: auto;
+		align-items: center;
+		font-size: 1rem;
+	}
+	.navbar-title {
+		font-weight: bold;
+		margin-left: 8px;
+	}
+	button {
+		padding-right: 0 !important;
+		border-color: transparent !important;
+	}
+	&>div {
+		width: 1140px;
+		margin: 0 auto;
+	}
+}

@@ -1,10 +1,8 @@
 import { Component } from "react";
 	import "./assets/webfonts/webfonts.css";
-	import "./assets/css/main.css";
 	import "./assets/css/index.min.css";
 	import { Route, Link, withRouter } from "react-router-dom";
 	import Logo from "./assets/images/logo.svg";
-	import Config from "./config.json";
 	import Navigation from "./components/Navigation.js";
 	import Footer from "./components/Footer.js";
 	import Home from "./pages/home/Home.js";

@@ -1,3 +1,31 @@
 @charset 'UTF-8';
 @import
-	'../css/main.css', '../css/normalize.css';
+	'../css/normalize.css',
+	'visuals/typography',
+	'components/nav', 'components/carousel', 'components/card', 'components/footer',
+	'pages/home', 'pages/park', 'pages/article';
+
+nav .navbar-brand, .carousel h1, #social li, footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+form {
+	background: #F4F4F4;
+}
+@media only screen and (max-width: 992px) {
+	.container {
+		min-width: 100%!important;
+	}
+}
+@media only screen and (min-width: 576px) {
+
+}
+@media only screen and (min-width: 768px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}

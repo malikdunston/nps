@@ -1,0 +1,58 @@
+.article {
+	background: #E5E5E5;
+	&>div>* {
+		padding: 24px;
+		margin: 24px 15px;
+		background: white;
+	}
+	&>div>* {
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.35);
+	}
+	article {
+		h1 {
+			color: black;
+			text-align: left;
+			margin: 24px 0;
+		}
+		aside {
+			border-top: 1px #CCCCCC solid;
+			border-bottom: 1px #CCCCCC solid;
+			padding: 15px 0;
+			margin-bottom: 24px;
+			&* {
+				line-height: 1.25;
+				margin: 0;
+				font-size: 14px !important;
+				font-family: "FrutigerLTStd-Roman" !important;
+			}
+			aside h5 {
+				font-weight: bold;
+
+				&:last-of-type {
+					margin-top: 15px;
+				}
+			}
+		}
+		&>p {
+			font-family: "Rawlinson";
+			line-height: 2;
+			margin-bottom: 32px;
+		}
+	}
+	h1 {
+		font-size: 1.75em;
+		font-family: "Rawlinson";
+		color: white;
+	}
+	h2 {
+		font-family: "Rawlinson";
+	}
+}
+@media only screen and (min-width: 1400px) {
+	.article{
+		&>article {
+			width: 848px !important;
+			margin-left: calc(50% - 570px);
+		}
+	}
+}

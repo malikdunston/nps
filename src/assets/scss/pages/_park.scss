@@ -1,0 +1,130 @@
+.park {
+	#carouselCtrl,
+	#carouselCtrl .carousel-inner {
+		height: 499px;
+		& * {
+			opacity: 1;
+		}
+	}
+	.carousel-inner {
+		position: relative;
+		background: black;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	#park-title {
+		position: absolute;
+		z-index: 100;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	#carouselCtrl{
+		h1 {
+			position: unset;
+		}
+		img {
+			opacity: .4 !important;
+			max-width: unset;
+			max-height: 100%;
+			position: relative;
+			transform-origin: 50% 50%;
+		}
+		.btn {
+			margin: 1rem 2rem 2rem 2rem !important;
+			border: 2px solid white;
+			color: white;
+			background-color: transparent;
+		}
+	}
+	#park-list{
+		li {
+			padding: 15px 0;
+		}
+		& > div {
+			padding: 15px 0;
+			border-bottom: 1px #CCCCCC solid;
+			width: 100%;
+		}
+		div {
+			display: inline-block;
+			vertical-align: top;
+		}
+		.list-img {
+			width: 75px;
+			height: 75px;
+			overflow: hidden;
+			margin-right: 15px;
+			margin-bottom: auto;
+		}
+		div img {
+			max-height: 100%;
+			max-width: unset;
+		}
+		.list-copy {
+			width: calc(100% - 105px);
+		}
+		h5 {
+			font-size: 16px;
+			font-weight: bolder;
+		}
+		p {
+			font-size: .85rem;
+			line-height: 1;
+			margin: 0;
+		}
+	}
+}
+@media only screen and (min-width: 768px) {
+	#park-list {
+		padding: 9px 24px 24px;
+		text-align: center;
+		&>div {
+			text-align: left;
+			width: 50%;
+			display: inline-block;
+			border: 0;
+		}
+		&>div:nth-of-type(even) {
+			padding-left: 15px;
+		}
+		&>div:nth-of-type(odd) {
+			padding-right: 15px;
+		}
+		.list-img {
+			width: 100%;
+			height: 194px;
+			margin-bottom: 15px;
+		}
+		div img {
+			position: relative;
+			width: 100%;
+			max-width: unset;
+		}
+	}
+	.park{
+		#carouselCtrl img {
+			transform: scale(2);
+		}
+	}
+}
+@media only screen and (min-width: 992px) {
+	#park-list {
+		padding: 9px 0 24px 0;
+		& > div {
+			width: 33.3%;
+			padding: 15px;
+		}
+	}
+}
+@media only screen and (min-width: 1400px) {
+	.park{
+		#carouselCtrl img {
+			transform: scale(3);
+		}
+	}
+}
