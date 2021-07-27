@@ -42,15 +42,26 @@
 	margin-top: 15px;
 }
 
-.article article>p {
+.article article > p {
 	font-family: "Rawlinson";
 	line-height: 2;
 	margin-bottom: 32px;
 }
 
+.article article aside * {
+	font-family: "FrutigerLTStd-Roman"!important;
+}
+
+.article h1 {
+	font-size: 1.75em;
+	font-family: "Rawlinson";
+	color: white;
+}
+
 .article h2 {
 	font-family: "Rawlinson";
 }
+
 
 /* related */
 
@@ -101,7 +112,6 @@
 		margin: 0;
 		left: calc(50% + 300px);
 		width: 262px;
-		/* float: right; */
 	}
 	#ads>div {
 		width: 100%;

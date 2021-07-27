@@ -1,19 +1,12 @@
-/* Backus Starter Files */
-@import url("_363_starter-files.css");
-
-/* typography */
 @import url("_typography.css");
-
-/* flexbox */
-@import url("_flex.css");
-
-/* components */
 @import url("_components.css");
-@import url("_components_sm.css");
-
-
-
 @import url("_park.css");
-@import url("_park_sm.css");
-
 @import url("_article.css");
+
+nav .navbar-brand, .carousel h1, #social li, footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}

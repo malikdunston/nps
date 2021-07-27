@@ -36,8 +36,6 @@ componentDidUpdate(prevProps){
 	}
 }
 
-
-
 render(){ 		
 	return (
 		<div>
