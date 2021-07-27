@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import Hoc from "../../components/getData";
 
 class Article extends Component { 
@@ -9,7 +8,6 @@ constructor(props){
 	this.state = {
 		article: {},
 		image: {},
-		// related: [],
 		id: null
 	}
 }
@@ -17,11 +15,9 @@ constructor(props){
 async loadArticle(newsId){
 	let article = await this.props.getData("newsreleases", {q: ("id=" + newsId), limit: 1});
 	article = article.data[0];
-	// let related = await this.props.getData("newsreleases", {parkCode: article.parkCode, limit: 3});
 	this.setState({
 		article: article,
 		image: article.image,
-		// related: related.data,
 		id: article.id
 	})
 }
@@ -39,7 +35,7 @@ componentDidUpdate(prevProps){
 render(){ 		
 	return (
 		<div>
-			<article>
+			<article className="container">
 				<img src={this.state.image.url} alt={this.state.image.altText}/>
 				<h1>{this.state.article.title}</h1>
 				<p>{this.state.article.abstract}</p>
@@ -47,17 +43,6 @@ render(){
 					<button className="mb-md-3 btn btn-sm btn-dark">View More</button>
 				</a>
 			</article>
-			{/* <section id="related">
-				<h2>Related News</h2>
-				{this.state.related.map(a=>{
-					return <div>
-						<Link to={"/article/" + a.id}>
-							<h2>{a.title}</h2>
-							<p>{a.id}</p>
-						</Link>
-					</div>
-				})}
-			</section> */}
 		</div>
 	)
 }

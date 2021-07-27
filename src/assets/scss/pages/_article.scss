@@ -1,14 +1,14 @@
 .article {
 	background: #E5E5E5;
-	&>div>* {
-		padding: 24px;
-		margin: 24px 15px;
-		background: white;
-	}
-	&>div>* {
-		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.35);
-	}
 	article {
+		box-shadow: 0 4px 3px rgba(0, 0, 0, 0.35);
+		padding: 24px;
+		margin: 24px auto;
+		background: white;
+		img{
+			height: 400px;
+			width: 100%;
+		}
 		h1 {
 			color: black;
 			text-align: left;
