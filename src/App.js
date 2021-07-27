@@ -16,13 +16,12 @@ class App extends Component {
 		<Navigation logo={Logo}/>
 		<Route exact path="/"
 			render={()=>{
-				return <Home />
+				return <Home/>
 			}}/>
-		<Route exact path="/article"
-			render={()=>{
+		<Route exact path="/article/:articleId?"
+			render={(params)=>{
 				return <Article 
-					current={Config.data.article.current} 
-					all={Config.data.article.all} />
+					{...params}/>
 			}}/>
 		<Route exact path="/park/:parkCode?"
 			render={(params)=>{

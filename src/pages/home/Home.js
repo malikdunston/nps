@@ -12,17 +12,14 @@ constructor(props){
 	}
 }
 async componentDidMount(){
-	const parks = await this.props.getData("parks");
+	let parks = await this.props.getData("parks");
 	parks.data.length = 18;
-// for "featured" section, went with articles over newsreleases endponit.
-// at least we can use listingDescription to get some body for the article page,
-// along with a link to the article itself (for now...)
-// options: find a way to get html from that link, open in a modal/webframe?
-	const featured = await this.props.getData("articles");
-	featured.data.length = 7;
+	let featured = await this.props.getData("newsreleases");
+	featured = featured.data.filter(f=>f.image.url);
+	featured.length = 7;
 	this.setState({
 		parks: parks.data,
-		featured: featured.data,
+		featured: featured
 	})
 }
 render(){ return (
@@ -58,8 +55,8 @@ render(){ return (
 		</form>
 		<section id="featured" className="container px-3">
 			{!this.state.featured ? "" :  this.state.featured.map(f=>{
-				return <Link to={"/article"} className="card">
-					<img src={f.listingImage.url} alt={f.listingImagealtText}/>
+				return <Link to={"/article/"+f.id} className="card">
+					<img src={f.image.url} alt={f.altText}/>
 					<div className="card-body">
 						<h5 className="card-title">{f.title}</h5>
 					</div>
