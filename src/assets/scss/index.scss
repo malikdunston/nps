@@ -12,6 +12,26 @@ nav .navbar-brand, .carousel h1, #social li, footer {
 	display: -webkit-flex;
 	display: flex;
 }
+#Hero{
+	position: relative;
+	h1{
+		font-size: 24px;
+		font-family: "Rawlinson";
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+	video{
+		pointer-events: none;
+		object-fit: cover;
+		width: 100%;
+	}
+}
 form {
 	background: #F4F4F4;
 }

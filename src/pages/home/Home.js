@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import HomeVideo from "./hero_video.mp4";
+import HomeVideoWEBM from "./hero_video.webm";
 import Hoc from "../../components/getData";
 
 class Home extends Component { 
@@ -24,15 +25,23 @@ async componentDidMount(){
 }
 render(){ return (
 	!this.state.parks ? "" : <div>
-		<section id="carouselCtrl" className="carousel slide" data-ride="carousel">
-			<div className="carousel-inner">
-				<h1><span>
-					National Parks Service
-				</span></h1>
-				<video className="carousel-item-active" muted autoplay="autoplay" loop="loop" style={{pointerEvents: "none"}}>
-					<source src={HomeVideo} type="video/mp4" />
-				</video>
-			</div>
+		<section id="Hero">
+			<h1><span>
+				National Parks Service
+			</span></h1>
+			<video 
+				muted = "muted"
+				autoplay = "autoplay"
+				loop = "loop"
+				playsinline = "playsinline"
+				webkit-playsinline = "webkit-playsinline">
+				<source 
+					src={HomeVideo} 
+					type="video/mp4"/>
+				<source 
+					src={HomeVideoWEBM} 
+					type="video/webm"/>
+			</video>
 		</section>
 		<form className="py-4" novalidate>
 			<div className="container form-group px-3">
