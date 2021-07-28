@@ -41,7 +41,7 @@ render(){ return (
 				<select id="select-a-state"
 					className="form-control"
 					onChange={(e)=>{
-						console.log(e.target.value);
+						this.setState({selectedState: e.target.value})
 					}}>
 					<option value="">Select A State...</option>
 					{this.props.states.map(s=>{
@@ -50,7 +50,12 @@ render(){ return (
 				</select>
 			</div>
 			<div className="container text-center">
-				<button type="submit" className="btn btn-sm btn-primary">Search</button>
+				<button type="submit" className="btn btn-sm btn-primary" onClick={(e)=>{
+					if(this.state.selectedState){
+						e.preventDefault();
+						window.location.href = `${process.env.PUBLIC_URL}/search/parks/${this.state.selectedState}`
+					}
+				}}>Search</button>
 			</div>
 		</form>
 		<section id="featured" className="container px-3">

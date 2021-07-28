@@ -7,9 +7,9 @@ constructor(props){
 	this.state = {
 		open: false,
 		menu: [
-			["home", "/"],
-			["article", "/article"],
-			["park", "/park/"]
+			// ["home", "/"],
+			// ["article", "/article"],
+			// ["park", "/park/"]
 		]
 	}
 	this.navClick = this.navClick.bind(this);

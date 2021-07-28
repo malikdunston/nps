@@ -8,6 +8,7 @@ import { Component } from "react";
 	import Home from "./pages/home/Home.js";
 	import Article from "./pages/article/Article.js";
 	import Park from "./pages/park/Park.js";
+	import Search from "./pages/search/Search.js";
 
 class App extends Component {
 	render() {return <div className={"App " + this.props.location.pathname.split("/")[1]}>
@@ -24,6 +25,10 @@ class App extends Component {
 		<Route exact path="/park/:parkCode?"
 			render={(params)=>{
 				return <Park {...params}/>
+			}}/>
+		<Route exact path="/search/:searchIn?/:searchFor?"
+			render={(params)=>{
+				return <Search {...params}/>
 			}}/>
 		<Footer logo={Logo}/>
 	</div>};
