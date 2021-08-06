@@ -1,14 +1,20 @@
 nav {
 	background-color: #121214 !important;
+	background-color: black !important;
 	height: 66px;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	z-index: 1000;
+	color: white;
+	* {
+		color: white;
+	}
 	.menu {
 		padding: 6px 0 0 40px;
 		font-weight: bold;
 		opacity: .7;
-
-		a {
-			color: white !important;
-		}
 	}
 	img {
 		width: 30.39px;
@@ -18,15 +24,35 @@ nav {
 	.navbar-brand {
 		margin-right: auto;
 		align-items: center;
-		font-size: 1rem;
-	}
-	.navbar-title {
-		font-weight: bold;
-		margin-left: 8px;
+		font-size: 1.25rem;
+		padding: 0 16px;
+		height: 50%;
+		& > img {
+			font-weight: bold;
+			height: 100%;
+			object-fit: contain;
+		}
+		& > div {
+			font-weight: bold;
+			margin-left: 8px;
+		}
 	}
 	button {
-		padding-right: 0 !important;
-		border-color: transparent !important;
+		padding: 0;
+		border-color: transparent;
+		border-width: 0;
+		width: 65px;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0);
+		color: rgba(255, 255, 255, 0.5);
+		transition: color .5s, background-color .5s;
+		&:not(.search){
+			font-weight: bold;
+		}
+		&:hover{
+			background-color: rgba(255, 255, 255, 0.1);
+			color: rgba(255, 255, 255, 1);
+		}
 	}
 	&>div {
 		width: 1140px;

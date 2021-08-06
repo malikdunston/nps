@@ -4,16 +4,19 @@ footer {
 	align-items: center;
 	background-color: black;
 	color: white;
-	img:first-of-type {
-		margin-bottom: 1.25rem;
+	img {
+		&:first-of-type {
+			max-width: 100%;
+			margin-bottom: 1.25rem;
+		}
+		&:last-of-type {
+			width: 80px;
+		}
 	}
 	div {
 		width: 100%;
 		height: 1px;
 		background: white;
 		margin-bottom: 1.25rem;
-	}
-	img:last-of-type {
-		width: 80px;
 	}
 }

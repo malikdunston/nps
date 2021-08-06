@@ -11,7 +11,7 @@ import { Component } from "react";
 	import Search from "./pages/search/Search.js";
 
 class App extends Component {
-	render() {return <div className={"App " + this.props.location.pathname.split("/")[1]}>
+	render() {return <div className={"App " + (this.props.location.pathname.split("/")[1] || "home")}>
 		<Navigation logo={Logo}/>
 		<Route exact path="/"
 			render={()=>{
