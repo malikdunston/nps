@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import HomeVideo from "./hero_video.mp4";
-import HomeVideoWEBM from "./hero_video.webm";
-import Hoc from "../../components/getData";
+	import { Link } from "react-router-dom";
+	import Hero from "../../components/Hero.js";
+	import Hoc from "../../components/getData";
+		import HomeVideo from "./hero_video.mp4";
+		import HomeVideoWEBM from "./hero_video.webm";
 
 class Home extends Component { 
 constructor(props){
 	super(props);
 	this.state = {
 		parks: [],
-		featured: []
+		featured: [],
+		heroData: [
+			[HomeVideo, "mp4"],
+			[HomeVideoWEBM, "webm"]
+		]
 	}
 }
 async componentDidMount(){
@@ -25,24 +30,7 @@ async componentDidMount(){
 }
 render(){ return (
 	!this.state.parks ? "" : <div>
-		<section id="Hero">
-			<h1><span>
-				National Parks Service
-			</span></h1>
-			<video 
-				muted = "muted"
-				autoplay = "autoplay"
-				loop = "loop"
-				playsinline = "playsinline"
-				webkit-playsinline = "webkit-playsinline">
-				<source 
-					src={HomeVideo} 
-					type="video/mp4"/>
-				<source 
-					src={HomeVideoWEBM} 
-					type="video/webm"/>
-			</video>
-		</section>
+		<Hero {...this.props} title="National Parks Serivce" content={this.state.heroData}/>
 		<form className="py-4" novalidate>
 			<div className="container form-group px-3">
 				<h2 className="text-center">Find A National Park</h2>

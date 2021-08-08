@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import Hoc from "../../components/getData";
+	import Hero from "../../components/Hero.js";
 
 class Park extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			data: {},
-			imgs: []
+			imgs: [],
+			heroData: []
 		}
 	}
-	async componentDidMount(){
+	async getParkData(){
 		const parkCode = this.props.match.params.parkCode
 		let p = await this.props.getData("parks", {parkCode: parkCode});
 		const park = p.data[0]
@@ -21,27 +23,21 @@ class Park extends Component {
 			contact: {
 				...park.addresses.filter(a=>a.type === "Mailing")[0],
 				...park.contacts.phoneNumbers.filter(p=>p.type === "Voice")[0]
-			}
-		})
+			},
+			heroData: [
+				[park.images[1].url, park.images[1].altText]
+			]
+		});
+	}
+	async componentDidMount(){
+		this.getParkData();
 	}
 	render() {
 		const img = this.state.imgs[1];
 		const gallery = this.state.imgs;
 		return(
 		!(this.state.data && img) ? "" : <div>
-			<section id="carouselCtrl" className="carousel slide" >
-				<div className="carousel-inner carousel-item-active">
-					<div id="park-title" className="text-center">
-						<h1><span>
-							{this.state.data.fullName}
-						</span></h1>
-						<button className="btn">
-							Plan Your Visit
-						</button>
-					</div>
-					<img src={img.url} alt={img.altText} />
-				</div>
-			</section>
+			<Hero {...this.props} title={this.state.data.fullName} content={this.state.heroData}/>
 			<section id="park-list" className="container">
 				<h2>Things to Do</h2>
 				{this.state.thingsToDo.map(l => {

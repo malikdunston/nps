@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Hoc from "../../components/getData";
 
 class Article extends Component { 
-
 constructor(props){
 	super(props);
 	this.state = {
@@ -11,7 +10,6 @@ constructor(props){
 		id: null
 	}
 }
-
 async loadArticle(newsId){
 	let article = await this.props.getData("newsreleases", {q: ("id=" + newsId), limit: 1});
 	article = article.data[0];
@@ -21,17 +19,14 @@ async loadArticle(newsId){
 		id: article.id
 	})
 }
-
 componentDidMount(){
 	this.loadArticle(this.props.match.params.articleId);
 }
-
 componentDidUpdate(prevProps){
 	if(this.props.match.params.articleId !== prevProps.match.params.articleId){
 		this.loadArticle(this.props.match.params.articleId);
 	}
 }
-
 render(){ 		
 	return (
 		<div>
