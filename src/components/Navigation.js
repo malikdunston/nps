@@ -38,7 +38,7 @@ toggleSearch(e){
 	input.focus();
 	input.select();
 	if(this.state.search.valid){
-		window.location.href = `${process.env.PUBLIC_URL}/search/${this.state.search.q}`;
+		window.location.href = `${process.env.PUBLIC_URL}/search/all/${this.state.search.q}`;
 	}
 	this.setState(prevState=>{return {search: {
 		open: !prevState.search.open,
