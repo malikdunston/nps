@@ -1,62 +1,69 @@
 nav {
 	background-color: #121214 !important;
-	background-color: black !important;
-	height: 66px;
+	height: 4rem;
 	width: 100%;
 	position: fixed;
-	display: flex;
-	align-items: center;
 	z-index: 1000;
-	color: white;
 	* {
 		color: white;
 		cursor: pointer;
 	}
-	.menu {
-		padding: 6px 0 0 40px;
-		font-weight: bold;
-		opacity: .7;
-	}
-	img {
-		width: 30.39px;
-		height: 40px;
-		position: relative;
-	}
-	.navbar-brand {
-		margin-right: auto;
+	.nav-top{
+		background-color: black !important;
+		display: flex;
 		align-items: center;
-		font-size: 1.25rem;
-		padding: 0 16px;
-		height: 50%;
-		& > img {
-			font-weight: bold;
+		.logo {
+			color: white;
+			display: flex;
+			align-items: center;
+			margin-right: auto;
+			align-items: center;
+			font-size: 1.25rem;
+			padding: 0 16px;
+			height: 50%;
+			& > img {
+				position: relative;
+				font-weight: bold;
+				object-fit: contain;
+			}
+			& > div {
+				font-weight: bold;
+				margin-left: 8px;
+			}
+		}
+		button {
+			padding: 1.5rem;
+			border-color: transparent;
+			border-width: 0;
+			width: 4rem;
 			height: 100%;
-			object-fit: contain;
-		}
-		& > div {
-			font-weight: bold;
-			margin-left: 8px;
-		}
-	}
-	button {
-		padding: 0;
-		border-color: transparent;
-		border-width: 0;
-		width: 65px;
-		height: 100%;
-		background-color: rgba(255, 255, 255, 0);
-		color: rgba(255, 255, 255, 0.5);
-		transition: color .5s, background-color .5s;
-		&:not(.search){
-			font-weight: bold;
-		}
-		&:hover{
-			background-color: rgba(255, 255, 255, 0.1);
-			color: rgba(255, 255, 255, 1);
+			background-color: rgba(255, 255, 255, 0);
+			transition: background-color .5s;
+			svg{
+				overflow: visible;
+				&>*:not(title){
+					transition: stroke .5s, stroke-width .5s;
+					fill: none;
+					stroke: rgba(255, 255, 255, 0.5);
+					stroke-width: .5rem;
+				}
+			}
+			&:hover{
+				background-color: rgba(255, 255, 255, 0.1);
+				svg{
+					&>*:not(title){
+						stroke: rgba(255, 255, 255, 1);
+						stroke-width: 1rem;
+					}
+				}
+			}
 		}
 	}
-	&>div {
-		width: 1140px;
-		margin: 0 auto;
+	.nav-bottom{
+		.menu {
+			padding: 6px 0 0 40px;
+			font-weight: bold;
+			opacity: .7;
+		}
 	}
 }
