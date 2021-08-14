@@ -2,6 +2,7 @@ import React, { Component } from "react";
 	import { Link } from "react-router-dom";
 	import Hero from "../../components/Hero.js";
 	import Hoc from "../../components/getData";
+	import FindAPark from "../../components/FindAPark.js";
 		import HomeVideo from "./hero_video.mp4";
 		import HomeVideoWEBM from "./hero_video.webm";
 
@@ -31,30 +32,8 @@ async componentDidMount(){
 render(){ return (
 	!this.state.parks ? "" : <div>
 		<Hero {...this.props} title="National Parks Serivce" content={this.state.heroData}/>
-		<form className="py-4" novalidate>
-			<div className="container form-group px-3">
-				<h2 className="text-center">Find A National Park</h2>
-				<label for="select-a-state">Select A State</label>
-				<select id="select-a-state"
-					className="form-control"
-					onChange={(e)=>{
-						this.setState({selectedState: e.target.value})
-					}}>
-					<option value="">Select A State...</option>
-					{this.props.states.map(s=>{
-						return <option value={s[0]}>{s[1]}</option>
-					})}
-				</select>
-			</div>
-			<div className="container text-center">
-				<button type="submit" className="btn btn-sm btn-primary" onClick={(e)=>{
-					if(this.state.selectedState){
-						e.preventDefault();
-						window.location.href = `${process.env.PUBLIC_URL}/search/parks/${this.state.selectedState}`
-					}
-				}}>Search</button>
-			</div>
-		</form>
+		<FindAPark {...this.props}/>
+
 		<section id="featured" className="container px-3">
 			{!this.state.featured ? "" :  this.state.featured.map(f=>{
 				return <Link to={"/article/"+f.id} className="card">

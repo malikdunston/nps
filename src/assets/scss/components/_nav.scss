@@ -1,5 +1,5 @@
 nav {
-	background-color: #121214 !important;
+	background-color: var(--black);
 	height: 4rem;
 	width: 100%;
 	position: fixed;
@@ -10,7 +10,6 @@ nav {
 			cursor: pointer;
 		}
 		height: 4rem;
-		background-color: black !important;
 		display: flex;
 		align-items: center;
 		.logo {
