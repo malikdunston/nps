@@ -1,0 +1,9 @@
+.find-a-park{
+	position: fixed;
+	height: 4rem;
+	bottom: 1rem;
+	left: 1rem;
+	width: calc(100vw - 2rem);
+	z-index: 500;
+	background: var(--white);
+}

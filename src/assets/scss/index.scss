@@ -14,7 +14,12 @@ form {
 input,
 input:not(.button):focus,
 input:not(.button):active,
-input[type="text"] i{
+input[type="text"] i
+button,
+.button,
+select,
+option,
+input{
 	margin: 0;
 	padding: 0;
 	border: none;
@@ -46,11 +51,19 @@ input:-webkit-autofill
 }
 
 
+button,
+.button,
+select,
+option,
+input{
+	border: 0px;
+}
+
 
 @import
 	'../css/normalize.css',
 	'visuals/typography',
-	'components/nav', 'components/carousel', 'components/card', 'components/footer', 'components/hero',
+	'components/nav', 'components/carousel', 'components/card', 'components/footer', 'components/hero', 'components/find-a-park',
 	'pages/home', 'pages/park', 'pages/article';
 
 nav .navbar-brand, .carousel h1, #social li, footer {
