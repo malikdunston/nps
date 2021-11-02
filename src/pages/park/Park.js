@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Hoc from "../../components/getData";
+import getData from "../../components/getData";
 	import Hero from "../../components/Hero.js";
 
 class Park extends Component {
@@ -8,7 +8,7 @@ class Park extends Component {
 		this.state = {
 			data: {},
 			imgs: [],
-			heroData: []
+			heroData: [],
 		}
 	}
 	async getParkData(){
@@ -16,6 +16,16 @@ class Park extends Component {
 		let p = await this.props.getData("parks", {parkCode: parkCode});
 		const park = p.data[0]
 		const thingsToDo = await this.props.getData("thingstodo", {parkCode: parkCode});
+		window.gallery = park.images.map(img => {
+			return {
+			// from sliderjs/data.js
+				img: img.url,
+				content: {
+					title: img.title,
+					content: img.caption
+				}
+			}
+		});
 		this.setState({
 			data: park,
 			imgs: park.images,
@@ -28,13 +38,13 @@ class Park extends Component {
 				[park.images[1].url, park.images[1].altText]
 			]
 		});
+		console.log(window.gallery, ";lkj;lkj");
 	}
 	async componentDidMount(){
 		this.getParkData();
 	}
 	render() {
 		const img = this.state.imgs[1];
-		const gallery = this.state.imgs;
 		return(
 		!(this.state.data && img) ? "" : <div>
 			<Hero {...this.props} title={this.state.data.fullName} content={this.state.heroData}/>
@@ -53,17 +63,20 @@ class Park extends Component {
 				})}
 			</section>
 			<div className="px-3">
-				<div id="gallery" className="carousel slide" data-ride="carousel">
-					<div id="gallery-title" className="">
+				<div id="gallery">
+					<div id="gallery-title">
 						<p>View Photo Galleries</p>
 					</div>
-					<div className="carousel-inner">
-						{gallery.map(g=>{
-							return <div className="carousel-item active">
-								<img className="d-block w-100" src={g.url} alt={g.altText} />
-							</div>
-						})}
-					</div>
+					<section sljs="gallery" interval="2500" controls="true"></section>
+				{/* from sliderjs */}
+					<h1>controls = 'true'</h1>
+					<section sljs="dogs" interval="2500" controls="true"></section>
+					<h1>controls = 'false'</h1>
+					<section sljs="pets" delay="0" offset="1" transition="1000ms" direction="backward"></section>
+					<section sljs="pets" delay="1000" offset="2" transition="1000ms" direction="backward"></section>
+					<section sljs="pets" delay="2000" offset="3" transition="1000ms" direction="backward"></section>
+					<section sljs="pets" delay="3000" offset="4" transition="1000ms" direction="backward"></section>
+					<script>pets = [...window.dogs, ...this.cats];</script>
 				</div>
 			</div>
 			<div className="container py-4 px-3">
@@ -80,4 +93,4 @@ class Park extends Component {
 			</div>
 		</div>
 	)}
-} export default Hoc(Park);
+} export default getData(Park);

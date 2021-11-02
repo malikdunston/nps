@@ -1,7 +1,7 @@
 import React from 'react';
 import Config from "../config.json";
 
-const Hoc = OrigComp => {
+const getData = OrigComp => {
 	class GetDataHOC extends React.Component {
 		async getData(lookFor, params){
 			params = params || {};
@@ -24,4 +24,4 @@ const Hoc = OrigComp => {
 	return GetDataHOC;
 };
 
-export default Hoc;
+export default getData;

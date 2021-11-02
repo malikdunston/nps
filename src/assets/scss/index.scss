@@ -63,10 +63,10 @@ input{
 @import
 	'../css/normalize.css',
 	'visuals/typography',
-	'components/nav', 'components/carousel', 'components/card', 'components/footer', 'components/hero', 'components/find-a-park',
+	'components/nav', 'components/gallery', 'components/card', 'components/footer', 'components/hero', 'components/find-a-park',
 	'pages/home', 'pages/park', 'pages/article';
 
-nav .navbar-brand, .carousel h1, #social li, footer {
+nav .navbar-brand, .gallery h1, #social li, footer {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;

@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var browserSync = require("browser-sync").create();
 var gulp = require('gulp');
