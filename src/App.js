@@ -87,20 +87,6 @@ class App extends Component {
 	}
 	render() {return <div className={"App " + (this.props.location.pathname.split("/")[1] || "home")}>
 		<Navigation logo={Logo}/>
-
-	{/* testing... */}
-		<Slider slides={this.state.pets.dogs} axis={"Y"} height={300} controls={["index", "arrows"]} transition={100} startAt={3}/>
-	{/* default... */}
-		<Slider slides={this.state.pets.dogs}/>
-	{/* all settings custom...  */}
-		<Slider slides={[ ...this.state.pets.cats, ...this.state.pets.dogs ]}
-			axis="Y"
-			height={250}
-			width={250}
-			transition={200}
-			controls={["index"]}
-			startAt={2}/>
-
 		<Route exact path="/"
 			render={()=>{
 				return <Home/>

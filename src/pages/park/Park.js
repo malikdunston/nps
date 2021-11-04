@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getData from "../../components/getData";
-	import Hero from "../../components/Hero.js";
-
+import Hero from "../../components/Hero.js";
+import Slider from "../../components/Slider/Slider"
 class Park extends Component {
 	constructor(props){
 		super(props);
@@ -16,7 +16,7 @@ class Park extends Component {
 		let p = await this.props.getData("parks", {parkCode: parkCode});
 		const park = p.data[0]
 		const thingsToDo = await this.props.getData("thingstodo", {parkCode: parkCode});
-		window.gallery = park.images.map(img => {
+		let SliderJSGallery = park.images.map(img => {
 			return {
 			// from sliderjs/data.js
 				img: img.url,
@@ -28,7 +28,7 @@ class Park extends Component {
 		});
 		this.setState({
 			data: park,
-			imgs: park.images,
+			imgs: SliderJSGallery,
 			thingsToDo: thingsToDo.data,
 			contact: {
 				...park.addresses.filter(a=>a.type === "Mailing")[0],
@@ -48,6 +48,21 @@ class Park extends Component {
 		return(
 		!(this.state.data && img) ? "" : <div>
 			<Hero {...this.props} title={this.state.data.fullName} content={this.state.heroData}/>
+		{/* From Slider.js */}
+			<div className="px-3">
+				<div id="gallery">
+					<div id="gallery-title">
+						<p>View Photo Galleries</p>
+					</div>
+					<Slider slides={this.state.imgs}
+						axis="Y"
+						// height={250}
+						// width={250}
+						// transition={200}
+						controls={["index"]}
+						startAt={1}/>
+				</div>
+			</div>
 			<section id="park-list" className="container">
 				<h2>Things to Do</h2>
 				{this.state.thingsToDo.map(l => {
@@ -62,23 +77,6 @@ class Park extends Component {
 					</div>
 				})}
 			</section>
-			<div className="px-3">
-				<div id="gallery">
-					<div id="gallery-title">
-						<p>View Photo Galleries</p>
-					</div>
-					<section sljs="gallery" interval="2500" controls="true"></section>
-				{/* from sliderjs */}
-					<h1>controls = 'true'</h1>
-					<section sljs="dogs" interval="2500" controls="true"></section>
-					<h1>controls = 'false'</h1>
-					<section sljs="pets" delay="0" offset="1" transition="1000ms" direction="backward"></section>
-					<section sljs="pets" delay="1000" offset="2" transition="1000ms" direction="backward"></section>
-					<section sljs="pets" delay="2000" offset="3" transition="1000ms" direction="backward"></section>
-					<section sljs="pets" delay="3000" offset="4" transition="1000ms" direction="backward"></section>
-					<script>pets = [...window.dogs, ...this.cats];</script>
-				</div>
-			</div>
 			<div className="container py-4 px-3">
 				<h2 className="text-center">Contact the Park</h2>
 				<h5>Mailing Address:</h5>
