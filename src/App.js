@@ -25,7 +25,7 @@ class App extends Component {
 			}}/>
 		<Route path="/"
 			render={()=>{
-				return <Home/>
+				return <Home heroData={this.state.heroData}/>
 			}}/>
 	</div>};
 }; 
