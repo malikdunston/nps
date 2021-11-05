@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Controls from './Controls'
-import Feed from './Feed';
+import Controls from './Controls/Controls'
+import Feed from './Feed/Feed';
 export default function Slider(props) {
 	const slider = useRef(null);
 	const [ config, setConfig ] = useState({
