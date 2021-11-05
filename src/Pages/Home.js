@@ -23,19 +23,11 @@ function Home( props ) {
 	}, [])
 	return <div>
 
-		{/* {news ? <Slider slides={news}
+		{news ? <Slider slides={news}
 			height={250}
 			transition={200}
-			controls={false} /> : ""} */}
-		{/* {news ? news.map(f=>{
-			return <Link to={"/article/"+f.id} key={f.id} className="card">
-				<img src={f.image.url} alt={f.altText}/>
-				<div className="card-body">
-					<h5 className="card-title">{f.title}</h5>
-				</div>
-			</Link>
-		}) : ""} */}
-
+			controls={false} /> : ""}
+			
 		{/* <section id="popular" className="container py-4 px-3">
 			<h1>View Parks</h1>
 			{parks ? parks.map(p=>{
