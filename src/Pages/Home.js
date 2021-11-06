@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import getData from "./../Components/getData";
 import Slider from "./../Components/SliderJS/Slider";
+import Dropdown from "./../Components/Dropdown";
 function Home( props ) {
 	const [ news, setNews ] = useState([]);
 	const [ parks, setParks ] = useState([]);
@@ -26,17 +27,16 @@ function Home( props ) {
 			height={250}
 			transition={200}
 			controls={false} /> : ""}
-{/* 
-	When we return here, consider replacing this with a <Slider></Slider> 
-	with scroll="on"...
-*/}
+
 		{parks ? <section>
 			<h1>View Parks</h1>
-			{parks.map( p => <Link to={"/park/" + p.parkCode} className="card">
+			{parks.map( p => <Link to={"/park/" + p.parkCode} key={p.parkCode} className="card">
 				<img src={p.images[0].url} alt={p.images[0].altText}/>
 				<h5 className="card-title">{p.name}</h5>
 			</Link>)}
 		</section> : ""}
+
+		<Dropdown items={props.states}/>
 	</div>
 } 
 export default getData( Home );
