@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as MenuOpen } from "../assets/icons/menu_open.svg";
 import { ReactComponent as MenuClose } from "../assets/icons/menu_close.svg";
 import Search from "./Search";
-export default function Navigation ( props ) {
+export default function Navigation ( { logo } ) {
 	const [ open, setOpen ] = useState(false);
 	const [ menu, setMenu ] = useState([
 		["Home", "/"],
@@ -17,7 +17,7 @@ export default function Navigation ( props ) {
 	return <nav>
 		<div className="nav-top">
 			<Link to="/" className="logo">
-				<img src={props.logo} width="30" height="30" className="d-inline-block align-top" alt="National Parks Service Logo"/>
+				<img src={ logo } width="30" height="30" className="d-inline-block align-top" alt="National Parks Service Logo"/>
 				<div>NPS</div>
 			</Link>
 			<Search />
@@ -26,7 +26,11 @@ export default function Navigation ( props ) {
 			</div>
 		</div>
 		<div className="nav-bottom">
-			{menu ? <div className={"menu " + (open ? "show" : "")} >
+			{menu ? <div className={"menu " + (open ? "show" : "")} style={{
+				height: open ? "100vh" : "0px",
+				overflow: "hidden",
+				transition: "200ms"
+			}}>
 				<ul> { menu.map( (m, i) => <li key={i}><Link to={m[1]}>{m[0]}</Link></li> ) } </ul>
 			</div> : ""}
 			<div className="footer">

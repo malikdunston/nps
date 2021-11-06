@@ -12,10 +12,10 @@ function App( props ) {
 	])
 	return <div className={"App " + (props.location.pathname.split("/")[1] || "home")}>
 		<Navigation logo={Logo}/>
-		<Route path="/search"
+		{/* <Route path="/search"
 			render={()=>{
 				return <div>SearchComp</div>
-			}}/>
+			}}/> */}
 		<Route path="/"
 			render={()=>{
 				return <Home heroData={hero}/>
