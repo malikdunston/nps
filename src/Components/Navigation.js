@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Route, Link, withRouter } from "react-router-dom";
-import { ReactComponent as SearchIcon } from "../assets/icons/search.svg";
+import { Link } from "react-router-dom";
 import { ReactComponent as MenuOpen } from "../assets/icons/menu_open.svg";
+import { ReactComponent as MenuClose } from "../assets/icons/menu_close.svg";
 import Search from "./Search";
 export default function Navigation ( props ) {
 	const [ open, setOpen ] = useState(false);
@@ -22,12 +22,12 @@ export default function Navigation ( props ) {
 			</Link>
 			<Search />
 			<div className="button" onClick={toggle}>
-				<MenuOpen />
+				{ open ? <MenuClose /> : <MenuOpen /> }
 			</div>
 		</div>
 		<div className="nav-bottom">
 			{menu ? <div className={"menu " + (open ? "show" : "")} >
-				<ul> { menu.map( m => <li><Link to={m[1]}>{m[0]}</Link></li> ) } </ul>
+				<ul> { menu.map( (m, i) => <li key={i}><Link to={m[1]}>{m[0]}</Link></li> ) } </ul>
 			</div> : ""}
 			<div className="footer">
 				Experience Your America

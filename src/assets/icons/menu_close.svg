@@ -1,1 +1,5 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:10px;}</style></defs><title>menu_close</title><line class="cls-1" x2="100" y2="100"/><line class="cls-1" y1="100" x2="100"/></svg>
+<svg viewBox="0 0 100 100">
+	<title>menu_close</title>
+	<line x2="100" y2="100" />
+	<line y1="100" x2="100" />
+</svg>

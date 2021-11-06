@@ -17,7 +17,7 @@ var projFiles = [
 
 var SCSS_WATCH = './src/assets/scss/**/*.scss';
 var SCSS_SRC = './src/assets/scss/index.scss';
-var SCSS_DEST = './src/assets/css';
+var SCSS_DEST = './public/assets';
 
 function compile_scss() {
 	return gulp.src(SCSS_SRC)
