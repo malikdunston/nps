@@ -6,6 +6,9 @@
 	--black: rgba(0, 0, 0, 1);
 	--white: rgba(255, 255, 255, 1);
 }
+*{
+	box-sizing: border-box;
+}
 body {
 	font-family: var(--sans-serif);
 	.button {
@@ -14,6 +17,13 @@ body {
 			stroke: white;
 			stroke-width: 1rem;
 			overflow: visible;
+			opacity: .7;
+			transition: 750ms;
+		}
+		&:hover{
+			svg{
+				opacity: .9
+			}
 		}
 	}
 	h1 {
@@ -85,4 +95,4 @@ body {
 	}
 }
 @import
-	"./components/navigation.scss";
+	"./components/navigation.scss", "./components/slider.scss";

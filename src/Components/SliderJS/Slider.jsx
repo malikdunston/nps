@@ -1,38 +1,63 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Controls from './Controls/Controls'
 import Feed from './Feed/Feed';
-export default function Slider(props) {
+import XScroll from './XScroll/XScroll';
+export default function Slider( props ) {
 	const slider = useRef(null);
 	const [ config, setConfig ] = useState({
 		axis: props.axis ? props.axis : "X",
-		height: props.height ? props.height + "px" : 300,
-		width: props.width ? props.width + "px" : "100%",
 		transition: props.transition ? props.transition : 400,
-		controls: props.controls ? props.controls : ["arrows"],
-		index: props.startAt ? props.startAt : 1
+		controls: props.controls ? props.controls : false,
+		index: props.cards ? 0 : 1,
+		xScroll: props.cards ? props.cards : false,
 	});
 	const move = (to) => {
-		setConfig(oldConfig => {
-			if(to === "next"){
-				return {
-					...oldConfig,
-					direction: to,
-					index: oldConfig.index >= props.slides.length + 1 ? 1 : oldConfig.index + 1
+		console.log("move", to);
+		if(props.cards){
+			setConfig(oldConfig => {
+				if(to === "next"){
+					return {
+						...oldConfig,
+						direction: to,
+						index: oldConfig.index < props.cards.length - 1 ? oldConfig.index + 1 : oldConfig.index
+					}
+				}else if(to === "prev"){
+					return {
+						...oldConfig,
+						direction: to,
+						index: oldConfig.index > 0 ? oldConfig.index - 1 : oldConfig.index
+					}
+				}else if(typeof to === "number"){
+					return {
+						...oldConfig,
+						direction: undefined,
+						index: to
+					}
 				}
-			}else if(to === "prev"){
-				return {
-					...oldConfig,
-					direction: to,
-					index: oldConfig.index <= 0 ? props.slides.length : oldConfig.index - 1
+			})
+		}else if(props.slides){
+			setConfig(oldConfig => {
+				if(to === "next"){
+					return {
+						...oldConfig,
+						direction: to,
+						index: oldConfig.index >= props.slides.length + 1 ? 1 : oldConfig.index + 1
+					}
+				}else if(to === "prev"){
+					return {
+						...oldConfig,
+						direction: to,
+						index: oldConfig.index <= 0 ? props.slides.length : oldConfig.index - 1
+					}
+				}else if(typeof to === "number"){
+					return {
+						...oldConfig,
+						direction: undefined,
+						index: to + 1
+					}
 				}
-			}else if(typeof to === "number"){
-				return {
-					...oldConfig,
-					direction: undefined,
-					index: to
-				}
-			}
-		})
+			})
+		}
 	}
 	const resetDom = () => {
 		setConfig(oldConfig=>{
@@ -43,10 +68,10 @@ export default function Slider(props) {
 			}
 		});
 	};
-	useEffect(() => { window.addEventListener("resize", resetDom) }, [])
-	useEffect( resetDom, [ config.width, config.height ])
-	return <div sljs=""  ref={slider} style={{ height: config.height, width: config.width,position: "relative", overflow: "hidden" }}>
-		{!config.controls ? "" : <Controls move={move} slides={props.slides}/>}
-		{!props.slides ? "" : <Feed  config={config} slides={[ props.slides[ props.slides.length - 1 ], ...props.slides, props.slides[ 0 ] ]}/>}
+	useEffect(() => { resetDom(); window.addEventListener("resize", resetDom) }, [])
+	return <div sljs=""  class="slider-js" ref={slider} style={{ position: "relative", overflow: "hidden" }}>
+		{!config.controls ? "" : <Controls move={move} data={props.cards ? props.cards : props.slides} config={config}/>}
+		{props.cards ? <XScroll config={config} cards={props.cards}/> : "" }
+		{props.slides ? <Feed  config={config} slides={[ props.slides[ props.slides.length - 1 ], ...props.slides, props.slides[ 0 ] ]}/> : ""}
 	</div>
 }

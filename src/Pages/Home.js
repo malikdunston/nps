@@ -22,20 +22,15 @@ function Home( props ) {
 		getParks();
 	}, [])
 	return <div>
-		<h1>National Parks Service</h1>
+		<header>
+			<h1>National Parks Service</h1>
+		</header>
 		{news ? <Slider slides={news}
-			height={250}
 			transition={200}
-			controls={false} /> : ""}
-
-		{parks ? <section>
-			<h1>View Parks</h1>
-			{parks.map( p => <Link to={"/park/" + p.parkCode} key={p.parkCode} className="card">
-				<img src={p.images[0].url} alt={p.images[0].altText}/>
-				<h5 className="card-title">{p.name}</h5>
-			</Link>)}
-		</section> : ""}
-
+			controls={["arrow"]} /> : ""}
+		{parks ? <Slider cards={parks}
+			transition={200}
+			controls={["arrow"]} /> : ""}
 		<Dropdown items={props.states}/>
 	</div>
 } 
