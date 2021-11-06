@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-export default function Card({ card  }) {
-	return <div className="card" style={{
+export default function Card({ card, currentIndex  }) {
+	return <div className={ "card" + (card.index === currentIndex ? " selected" : "") }style={{
 		position: "relative",
 		[card.axis === "Y" ? "minHeight" : "minWidth"]: card.cardSize
-	}}>
+	}} >
 		<div style={{position: "relative", width: "100%", height: "100%"}}>
 			{card.images ? <img src={card.images[0].url} 
 				alt={card.images[0].altText}

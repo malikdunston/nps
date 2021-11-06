@@ -8,5 +8,10 @@
 		// &:last-of-type{
 		// 	padding-right: 1em;
 		// }
+		opacity: .5;
+		transition: 300ms;
+		&.selected{
+			opacity: 1;
+		}
 	}
 }
