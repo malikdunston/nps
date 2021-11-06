@@ -25,10 +25,11 @@ function Home( props ) {
 		<header>
 			<h1>National Parks Service</h1>
 		</header>
-		{news ? <Slider slides={news}
+		{/* {news ? <Slider slides={news}
 			transition={200}
-			controls={["arrow"]} /> : ""}
+			controls={["arrow"]} /> : ""} */}
 		{parks ? <Slider cards={parks}
+			cardSize={50}
 			transition={200}
 			controls={["arrow"]} /> : ""}
 		<Dropdown items={props.states}/>

@@ -5,9 +5,9 @@ export default function XScroll({ cards, config }) {
 		display: "flex",
 		height: "100%",
 		flexDirection: config.axis === "X" ? "row" : "column",
-		transform: `translate${ config.axis }(${( -(config.axis === "X" ? config.clientWidth : config.clientHeight) * config.index )}px)`,
+		transform: config.transform ? config.transform : `translate${ config.axis }(${( -(config.axis === "X" ? config.clientWidth : config.clientHeight) * config.index )}px)`,
 		transition: config.transition + "ms",
 	}}>
-		{cards.map((card, i) => <Card key={i} card={{...card, index: i, axis: config.axis}}/>)}
+		{cards.map((card, i) => <Card key={i} card={{...card, index: i, axis: config.axis, cardSize:config.cardSize}}/>)}
 	</div>
 }

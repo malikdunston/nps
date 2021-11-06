@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Card({ card }) {
 	return <div className="card" style={{
 		position: "relative",
+		[card.axis === "Y" ? "minHeight" : "minWidth"]: card.cardSize
 	}}>
 		{card.images ? <img src={card.images[0].url} 
 			alt={card.images[0].altText}

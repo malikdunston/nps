@@ -10,27 +10,39 @@ export default function Slider( props ) {
 		controls: props.controls ? props.controls : false,
 		index: props.cards ? 0 : 1,
 		xScroll: props.cards ? props.cards : false,
+		cardSize: props.cardSize ? props.cardSize + "%" : "100%",
+		transform: null
 	});
 	const move = (to) => {
 		console.log("move", to);
 		if(props.cards){
 			setConfig(oldConfig => {
+				let distance = oldConfig.axis === "X" ? 
+					oldConfig.clientWidth : 
+					oldConfig.clientHeight;
+			// difference from feed...
+				distance = distance / ( 100 / props.cardSize );
+				let increment = ( distance ) * oldConfig.index * -1;
+				let transProp = `translate${ oldConfig.axis }(${ increment }px)`
 				if(to === "next"){
 					return {
 						...oldConfig,
 						direction: to,
+						transform: transProp,
 						index: oldConfig.index < props.cards.length - 1 ? oldConfig.index + 1 : oldConfig.index
 					}
 				}else if(to === "prev"){
 					return {
 						...oldConfig,
 						direction: to,
+						transform: transProp,
 						index: oldConfig.index > 0 ? oldConfig.index - 1 : oldConfig.index
 					}
 				}else if(typeof to === "number"){
 					return {
 						...oldConfig,
 						direction: undefined,
+						transform: transProp,
 						index: to
 					}
 				}
