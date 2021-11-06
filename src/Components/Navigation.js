@@ -20,17 +20,13 @@ export default function Navigation ( { logo } ) {
 				<img src={ logo } width="30" height="30" className="d-inline-block align-top" alt="National Parks Service Logo"/>
 				<div>NPS</div>
 			</Link>
-			<Search />
-			<div className="button" onClick={toggle}>
-				{ open ? <MenuClose /> : <MenuOpen /> }
-			</div>
+			<Search navOpen={open} />
+			<div className="button" onClick={toggle}> { open ? <MenuClose /> : <MenuOpen /> } </div>
 		</div>
-		<div className="nav-bottom">
-			{menu ? <div className={"menu " + (open ? "show" : "")} style={{
-				height: open ? "100vh" : "0px",
-				overflow: "hidden",
-				transition: "200ms"
-			}}>
+		<div className="nav-bottom" style={{
+			height: open ? "100vh" : "0px",
+		}}>
+			{menu ? <div className={"menu " + (open ? "show" : "")} >
 				<ul> { menu.map( (m, i) => <li key={i}><Link to={m[1]}>{m[0]}</Link></li> ) } </ul>
 			</div> : ""}
 			<div className="footer">

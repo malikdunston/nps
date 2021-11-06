@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 :root{
-	font-size: 16px;
+	font-size: 12px;
 	--sans-serif: "FrutigerLTStd-Roman", sans-serif;
 	--serif: "Rawlinson", serif;
 	--black: rgba(0, 0, 0, 1);
@@ -8,6 +8,14 @@
 }
 body {
 	font-family: var(--sans-serif);
+	.button {
+		svg{
+			fill: none;
+			stroke: white;
+			stroke-width: 1rem;
+			overflow: visible;
+		}
+	}
 	h1 {
 		text-align: center;
 		font-weight: bold;
@@ -71,27 +79,10 @@ body {
 	option,
 	input{
 		border: 0px;
-		overflow: hidden;
 	}
-
 	img{
 		object-fit: cover;
 	}
 }
-@media only screen and (max-width: 992px) {
-}
-@media only screen and (min-width: 576px) {
-}
-@media only screen and (min-width: 768px) {
-}
-@media only screen and (min-width: 992px) {
-}
-
 @import
 	"./components/navigation.scss";
-
-
-
-
-
-

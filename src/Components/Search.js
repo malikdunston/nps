@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ReactComponent as SearchIcon } from "../assets/icons/search.svg";
-export default function Search ( props ) {
+import { ReactComponent as MenuClose } from "../assets/icons/menu_close.svg";
+export default function Search ( { navOpen } ) {
 	const [ open, setOpen ] = useState(false);
 	const [ valid, setValidity ] = useState(false);
 	const [ q, setQ ] = useState(null);
@@ -16,8 +17,12 @@ export default function Search ( props ) {
 		e.currentTarget.parentNode.querySelector("input").select();
 		setOpen(!open);
 	}
-	return <div className={`search ${open ? "open" : ""}`}>
-		<input type="text" onChange={update} />
-		<div className="button" onClick={valid ? send : toggle}> <SearchIcon /></div>
+	return <div className={`search ${open ? "open" : ""}`} style={{display: navOpen ? "none" : "flex"}}>
+		<input type="text" onChange={update} style={{
+			width: open ? "calc(100vw + " + -17 + "rem)" : "0px",
+		}}/>
+		<div className="button" onClick={valid ? send : toggle}> 
+			{open && !valid ? <MenuClose /> : <SearchIcon/>}
+		</div>
 	</div>
 }
