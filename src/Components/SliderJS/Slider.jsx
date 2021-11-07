@@ -20,11 +20,13 @@ export default function Slider( props ) {
 				let distance = oldConfig.axis === "X" ? 
 					oldConfig.clientWidth : 
 					oldConfig.clientHeight;
+				console.log(distance);
 			// difference from feed...
 				distance = distance / ( 100 / props.cardSize );
-				let increment = ( distance ) * oldConfig.index * -1;
-				let transProp = `translate${ oldConfig.axis }(${ increment }px)`
 				if(to === "next"){
+					let increment = ( distance ) * (oldConfig.index + 1) * -1;
+					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
+					console.log(distance, increment, transProp);
 					return {
 						...oldConfig,
 						direction: to,
@@ -32,6 +34,9 @@ export default function Slider( props ) {
 						index: oldConfig.index < props.cards.length - 1 ? oldConfig.index + 1 : oldConfig.index
 					}
 				}else if(to === "prev"){
+					let increment = ( distance ) * (oldConfig.index - 1) * -1;
+					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
+					console.log(distance, increment, transProp);
 					return {
 						...oldConfig,
 						direction: to,
@@ -39,6 +44,9 @@ export default function Slider( props ) {
 						index: oldConfig.index > 0 ? oldConfig.index - 1 : oldConfig.index
 					}
 				}else if(typeof to === "number"){
+					let increment = ( distance ) * oldConfig.index * -1;
+					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
+					console.log(distance, increment, transProp);
 					return {
 						...oldConfig,
 						direction: undefined,
@@ -81,7 +89,7 @@ export default function Slider( props ) {
 		});
 	};
 	useEffect(() => { resetDom(); window.addEventListener("resize", resetDom) }, [])
-	return <div sljs=""  class="slider-js" ref={slider} style={{ position: "relative", overflow: "hidden" }}>
+	return <div sljs=""  className="slider-js" ref={slider} style={{ position: "relative", overflow: "hidden" }}>
 		{!config.controls ? "" : <Controls move={move} data={props.cards ? props.cards : props.slides} config={config}/>}
 		{props.cards ? <XScroll config={config} cards={props.cards}/> : "" }
 		{props.slides ? <Feed  config={config} slides={[ props.slides[ props.slides.length - 1 ], ...props.slides, props.slides[ 0 ] ]}/> : ""}
