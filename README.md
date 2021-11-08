@@ -1,12 +1,12 @@
 # Slider v3
 
-## Sprint Backlog - Nov 7
-
-- fix x-scroll selection bug
-
+## Nov 8
+- slider x-scroll:
+	- goes to index 0, last...
+	- select doesn't run first time (examine...)...
 
 ## Backlog
 
-- fix x-scroll beginning/end bug
-
 ### Old Backlogs
+#### Sprint Backlog - Nov 7
+- fix x-scroll selection bug

@@ -14,47 +14,42 @@ export default function Slider( props ) {
 		transform: null
 	});
 	const move = (to) => {
-		console.log("move", to);
 		if(props.cards){
-			setConfig(oldConfig => {
-				let distance = oldConfig.axis === "X" ? 
-					oldConfig.clientWidth : 
-					oldConfig.clientHeight;
-				console.log(distance);
-			// difference from feed...
-				distance = distance / ( 100 / props.cardSize );
-				if(to === "next"){
-					let increment = ( distance ) * (oldConfig.index + 1) * -1;
-					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
-					console.log(distance, increment, transProp);
+			function transProp(oldConfig, newIndex) {
+				let sliderSize = oldConfig.axis === "X" ? oldConfig.clientWidth : oldConfig.clientHeight;
+				sliderSize = sliderSize / ( 100 / props.cardSize );
+				let increment = sliderSize * -newIndex;
+				console.log(newIndex, increment);
+				return `translate${ oldConfig.axis }(${ increment }px)`
+			}
+			if(to === "next" && config.index < props.cards.length - 1){
+				setConfig(oldConfig => {
 					return {
 						...oldConfig,
 						direction: to,
-						transform: transProp,
-						index: oldConfig.index < props.cards.length - 1 ? oldConfig.index + 1 : oldConfig.index
+						transform: transProp(oldConfig, oldConfig.index + 1),
+						index: oldConfig.index + 1
 					}
-				}else if(to === "prev"){
-					let increment = ( distance ) * (oldConfig.index - 1) * -1;
-					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
-					console.log(distance, increment, transProp);
+				})
+			}else if(to === "prev" && config.index > 0){
+				setConfig(oldConfig => {
 					return {
 						...oldConfig,
 						direction: to,
-						transform: transProp,
-						index: oldConfig.index > 0 ? oldConfig.index - 1 : oldConfig.index
+						transform: transProp(oldConfig, oldConfig.index - 1),
+						index: oldConfig.index - 1
 					}
-				}else if(typeof to === "number"){
-					let increment = ( distance ) * oldConfig.index * -1;
-					let transProp = `translate${ oldConfig.axis }(${ increment }px)`
-					console.log(distance, increment, transProp);
+				})
+			}else if(typeof to === "number"){
+				setConfig(oldConfig => {
 					return {
 						...oldConfig,
 						direction: undefined,
-						transform: transProp,
+						transform: transProp(oldConfig),
 						index: to
 					}
-				}
-			})
+				})
+			}
 		}else if(props.slides){
 			setConfig(oldConfig => {
 				if(to === "next"){
