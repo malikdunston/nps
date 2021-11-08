@@ -31,8 +31,8 @@ function Home( props ) {
 		{parks ? <Slider cards={parks}
 			cardSize={75}
 			transition={200}
-			controls={["arrow"]} /> : ""}
-		<Dropdown items={props.states}/>
+			controls={true} /> : ""}
+		{/* <Dropdown items={props.states}/> */}
 	</div>
 } 
 export default getData( Home );

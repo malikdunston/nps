@@ -15,7 +15,7 @@ export default function Slider( props ) {
 	});
 	const move = (to) => {
 		if(props.cards){
-			function transProp(oldConfig, newIndex) {
+			function translate(oldConfig, newIndex) { // see if we can do this without arg.... and throw into state...
 				let sliderSize = oldConfig.axis === "X" ? oldConfig.clientWidth : oldConfig.clientHeight;
 				sliderSize = sliderSize / ( 100 / props.cardSize );
 				let increment = sliderSize * -newIndex;
@@ -27,7 +27,7 @@ export default function Slider( props ) {
 					return {
 						...oldConfig,
 						direction: to,
-						transform: transProp(oldConfig, oldConfig.index + 1),
+						transform: translate(oldConfig, oldConfig.index + 1),
 						index: oldConfig.index + 1
 					}
 				})
@@ -36,7 +36,7 @@ export default function Slider( props ) {
 					return {
 						...oldConfig,
 						direction: to,
-						transform: transProp(oldConfig, oldConfig.index - 1),
+						transform: translate(oldConfig, oldConfig.index - 1),
 						index: oldConfig.index - 1
 					}
 				})
@@ -45,7 +45,7 @@ export default function Slider( props ) {
 					return {
 						...oldConfig,
 						direction: undefined,
-						transform: transProp(oldConfig),
+						transform: translate(oldConfig, to),
 						index: to
 					}
 				})
