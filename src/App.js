@@ -3,6 +3,7 @@ import { Route, Link, withRouter } from "react-router-dom";
 import Logo from "./assets/images/logo.svg";
 import Navigation from "./Components/Navigation";
 import Home from "./Pages/Home";
+import Article from "./Pages/Article";
 import video_mp4 from "./assets/videos/hero_video.mp4";
 import video_webm from "./assets/videos/hero_video.webm";
 function App( props ) {
@@ -16,9 +17,13 @@ function App( props ) {
 			render={()=>{
 				return <div>SearchComp</div>
 			}}/> */}
-		<Route path="/"
+		<Route exact path="/"
 			render={()=>{
 				return <Home heroData={hero}/>
+			}}/>
+		<Route exact path="/article:articleId?"
+			render={(params)=>{
+				return <Article {...params}/>
 			}}/>
 	</div>
 }
