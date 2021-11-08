@@ -9,7 +9,7 @@ export default function Slider( props ) {
 		transition: props.transition ? props.transition : 400,
 		controls: props.controls ? props.controls : false,
 		index: props.cards ? 0 : 1,
-		xScroll: props.cards ? props.cards : false,
+		xScroll: props.cards ? true : false,
 		cardSize: props.cardSize ? props.cardSize + "%" : "100%",
 		transform: null
 	});

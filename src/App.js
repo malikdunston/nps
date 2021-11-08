@@ -21,7 +21,7 @@ function App( props ) {
 			render={()=>{
 				return <Home heroData={hero}/>
 			}}/>
-		<Route exact path="/article:articleId?"
+		<Route exact path="/article/:articleId?"
 			render={(params)=>{
 				return <Article {...params}/>
 			}}/>
