@@ -12,8 +12,7 @@ function Home( props ) {
 		setNews( news );
 	}
 	const getParks = async () => {
-		let parks = await props.getData("parks");
-		parks.data.length = 18;
+		let parks = await props.getData("parks", {limit: 18});
 		setParks( parks.data );
 	}
 	useEffect(() => {
