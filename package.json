@@ -43,6 +43,7 @@
 		"gulp-clean-css": "^4.3.0",
 		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^5.0.0",
+		"malikdunston-slider": "^0.2.9",
 		"react-router-dom": "^5.2.0",
 		"sass": "^1.36.0"
 	}

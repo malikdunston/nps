@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import getData from "./../Components/getData";
-import BtnSlider from "./../Components/SliderJS/Controls/BtnSlider";
-import Slider from "./../Components/SliderJS/Slider";
+// import BtnSlider from "./../Components/SliderJS/Controls/BtnSlider";
+// import Slider from "./../Components/SliderJS/Slider";
 function Article( props ) {
 	const [ article, setArticle ] = useState({});
 	const [ thisPark, setThisPark ] = useState({});
@@ -39,7 +39,7 @@ function Article( props ) {
 				<h1>{article.title}</h1>
 				<p>{article.abstract}</p>
 				<a href={article.url} target="_blank" rel="noreferrer">
-					<button className="mb-md-3 btn btn-sm btn-dark">View More <BtnSlider direction={"next"} move={()=>{}}/></button>
+					<button className="mb-md-3 btn btn-sm btn-dark">{"View More > "}</button>
 				</a>
 			</article> : ""}
 			
